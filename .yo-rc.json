@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.ocmt.web",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.3.1",
+    "applicationType": "monolith",
+    "baseName": "ocmt",
+    "packageName": "com.ocmt.web",
+    "packageFolder": "com/ocmt/web",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OWQ4NDZhZjI3YTkzMzk3NmI4NjM3ZDA3ZjA4ZjU4Zjc4MTNkOGI1YjFkYzEyNDEzNzQxNjkzYjAxYTNhNDdhZDc4ZjNhNjIyZjljNThjZTRmOWYzNWRhNzc4MDAxZjVhMmM3NGJjMDg2NjdmZWFjNWNlMWJkYjczMTIxZmY0Zjc=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ]
+  }
+}
