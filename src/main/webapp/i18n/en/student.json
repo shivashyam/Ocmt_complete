@@ -1,0 +1,52 @@
+
+{
+    "ocmtApp": {
+        "student" : {
+            "home": {
+                "title": "Students",
+                "createLabel": "Create a new Student",
+                "createOrEditLabel": "Create or edit a Student"
+            },
+            "created": "A new Student is created with identifier {{ param }}",
+            "updated": "A Student is updated with identifier {{ param }}",
+            "deleted": "A Student is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Student {{ id }}?"
+            },
+            "detail": {
+                "title": "Student"
+            },
+            "studentid": "Studentid",
+            "fName": "F Name",
+            "mName": "M Name",
+            "lName": "L Name",
+            "uName": "U Name",
+            "password": "Password",
+            "type": "Type",
+            "title": "Title",
+            "gender": "Gender",
+            "marital": "Marital",
+            "dob": "Dob",
+            "address": "Address",
+            "paddress": "Paddress",
+            "email": "Email",
+            "phoneNumber": "Phone Number",
+            "referral": "Referral",
+            "whythiscourse": "Whythiscourse",
+            "secondary": "Secondary",
+            "schoolname": "Schoolname",
+            "schoolgraddate": "Schoolgraddate",
+            "schooladdress": "Schooladdress",
+            "univ": "Univ",
+            "univname": "Univname",
+            "univgraddate": "Univgraddate",
+            "univaddress": "Univaddress",
+            "sop": "Sop",
+            "scorecard": "Scorecard",
+            "programtype": "Programtype",
+            "courses": "Courses",
+            "gpa": "Gpa",
+            "payments": "Payments"
+        }
+    }
+}

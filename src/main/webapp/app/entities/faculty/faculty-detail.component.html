@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="faculty">
+            <h2><span jhiTranslate="ocmtApp.faculty.detail.title">Faculty</span> {{faculty.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ocmtApp.faculty.facultyid">Facultyid</span></dt>
+                <dd>
+                    <span>{{faculty.facultyid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.fName">F Name</span></dt>
+                <dd>
+                    <span>{{faculty.fName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.mName">M Name</span></dt>
+                <dd>
+                    <span>{{faculty.mName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.lName">L Name</span></dt>
+                <dd>
+                    <span>{{faculty.lName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.uName">U Name</span></dt>
+                <dd>
+                    <span>{{faculty.uName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.password">Password</span></dt>
+                <dd>
+                    <span>{{faculty.password}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.title">Title</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Title.' + faculty.title}}">{{faculty.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Gender.' + faculty.gender}}">{{faculty.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.marital">Marital</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Marital.' + faculty.marital}}">{{faculty.marital}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.dob">Dob</span></dt>
+                <dd>
+                    <span>{{faculty.dob}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.address">Address</span></dt>
+                <dd>
+                    <span>{{faculty.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.paddress">Paddress</span></dt>
+                <dd>
+                    <span>{{faculty.paddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.email">Email</span></dt>
+                <dd>
+                    <span>{{faculty.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{faculty.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.cert1">Cert 1</span></dt>
+                <dd>
+                    <div *ngIf="faculty.cert1">
+                        <a (click)="openFile(faculty.cert1ContentType, faculty.cert1)">
+                            <img [src]="'data:' + faculty.cert1ContentType + ';base64,' + faculty.cert1" style="max-width: 100%;" alt="faculty image"/>
+                        </a>
+                        {{faculty.cert1ContentType}}, {{byteSize(faculty.cert1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.cert2">Cert 2</span></dt>
+                <dd>
+                    <div *ngIf="faculty.cert2">
+                        <a (click)="openFile(faculty.cert2ContentType, faculty.cert2)">
+                            <img [src]="'data:' + faculty.cert2ContentType + ';base64,' + faculty.cert2" style="max-width: 100%;" alt="faculty image"/>
+                        </a>
+                        {{faculty.cert2ContentType}}, {{byteSize(faculty.cert2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.dept">Dept</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Dept.' + faculty.dept}}">{{faculty.dept}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.faculty.courses">Courses</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Courses.' + faculty.courses}}">{{faculty.courses}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/faculty', faculty.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

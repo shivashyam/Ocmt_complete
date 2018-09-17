@@ -1,0 +1,10 @@
+{
+    "ocmtApp": {
+        "Marital" : {
+            "null": "",
+            "SINGLE": "SINGLE",
+            "MARRIED": "MARRIED",
+            "DIVORCED": "DIVORCED"
+        }
+    }
+}

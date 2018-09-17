@@ -1,0 +1,290 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-student-heading" jhiTranslate="ocmtApp.student.home.createOrEditLabel">Create or edit a Student</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!student.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="student.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.studentid" for="field_studentid">Studentid</label>
+                    <input type="number" class="form-control" name="studentid" id="field_studentid"
+                        [(ngModel)]="student.studentid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.fName" for="field_fName">F Name</label>
+                    <input type="text" class="form-control" name="fName" id="field_fName"
+                        [(ngModel)]="student.fName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.mName" for="field_mName">M Name</label>
+                    <input type="text" class="form-control" name="mName" id="field_mName"
+                        [(ngModel)]="student.mName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.lName" for="field_lName">L Name</label>
+                    <input type="text" class="form-control" name="lName" id="field_lName"
+                        [(ngModel)]="student.lName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.uName" for="field_uName">U Name</label>
+                    <input type="text" class="form-control" name="uName" id="field_uName"
+                        [(ngModel)]="student.uName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.password" for="field_password">Password</label>
+                    <input type="text" class="form-control" name="password" id="field_password"
+                        [(ngModel)]="student.password" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="student.type" id="field_type" >
+                        <option value="PROFESSIONAL">{{'ocmtApp.Type.PROFESSIONAL' | translate}}</option>
+                        <option value="CORPORATE">{{'ocmtApp.Type.CORPORATE' | translate}}</option>
+                        <option value="INTERNATIONAL">{{'ocmtApp.Type.INTERNATIONAL' | translate}}</option>
+                        <option value="DOMESTIC">{{'ocmtApp.Type.DOMESTIC' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.title" for="field_title">Title</label>
+                    <select class="form-control" name="title" [(ngModel)]="student.title" id="field_title" >
+                        <option value="MR">{{'ocmtApp.Title.MR' | translate}}</option>
+                        <option value="MS">{{'ocmtApp.Title.MS' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.gender" for="field_gender">Gender</label>
+                    <select class="form-control" name="gender" [(ngModel)]="student.gender" id="field_gender" >
+                        <option value="MALE">{{'ocmtApp.Gender.MALE' | translate}}</option>
+                        <option value="FEMALE">{{'ocmtApp.Gender.FEMALE' | translate}}</option>
+                        <option value="OTHER">{{'ocmtApp.Gender.OTHER' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.marital" for="field_marital">Marital</label>
+                    <select class="form-control" name="marital" [(ngModel)]="student.marital" id="field_marital" >
+                        <option value="SINGLE">{{'ocmtApp.Marital.SINGLE' | translate}}</option>
+                        <option value="MARRIED">{{'ocmtApp.Marital.MARRIED' | translate}}</option>
+                        <option value="DIVORCED">{{'ocmtApp.Marital.DIVORCED' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.dob" for="field_dob">Dob</label>
+                    <div class="input-group">
+                        <input id="field_dob" type="text" class="form-control" name="dob" ngbDatepicker  #dobDp="ngbDatepicker" [(ngModel)]="student.dob"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dobDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                        [(ngModel)]="student.address" required maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.address?.dirty && editForm.controls.address?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.address?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.address?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.paddress" for="field_paddress">Paddress</label>
+                    <input type="text" class="form-control" name="paddress" id="field_paddress"
+                        [(ngModel)]="student.paddress" required maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.paddress?.dirty && editForm.controls.paddress?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.paddress?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.paddress?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="student.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                        [(ngModel)]="student.phoneNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.referral" for="field_referral">Referral</label>
+                    <select class="form-control" name="referral" [(ngModel)]="student.referral" id="field_referral" >
+                        <option value="FRIENDS">{{'ocmtApp.Referral.FRIENDS' | translate}}</option>
+                        <option value="ONLINE">{{'ocmtApp.Referral.ONLINE' | translate}}</option>
+                        <option value="MEDIA">{{'ocmtApp.Referral.MEDIA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.whythiscourse" for="field_whythiscourse">Whythiscourse</label>
+                    <select class="form-control" name="whythiscourse" [(ngModel)]="student.whythiscourse" id="field_whythiscourse" >
+                        <option value="CAREER">{{'ocmtApp.Whythiscourse.CAREER' | translate}}</option>
+                        <option value="SECOND">{{'ocmtApp.Whythiscourse.SECOND' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.secondary" for="field_secondary">Secondary</label>
+                    <select class="form-control" name="secondary" [(ngModel)]="student.secondary" id="field_secondary" >
+                        <option value="YES">{{'ocmtApp.Secondary.YES' | translate}}</option>
+                        <option value="NO">{{'ocmtApp.Secondary.NO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.schoolname" for="field_schoolname">Schoolname</label>
+                    <input type="text" class="form-control" name="schoolname" id="field_schoolname"
+                        [(ngModel)]="student.schoolname" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.schoolgraddate" for="field_schoolgraddate">Schoolgraddate</label>
+                    <div class="input-group">
+                        <input id="field_schoolgraddate" type="text" class="form-control" name="schoolgraddate" ngbDatepicker  #schoolgraddateDp="ngbDatepicker" [(ngModel)]="student.schoolgraddate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="schoolgraddateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.schooladdress" for="field_schooladdress">Schooladdress</label>
+                    <input type="text" class="form-control" name="schooladdress" id="field_schooladdress"
+                        [(ngModel)]="student.schooladdress" required maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.schooladdress?.dirty && editForm.controls.schooladdress?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.schooladdress?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.schooladdress?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.univ" for="field_univ">Univ</label>
+                    <select class="form-control" name="univ" [(ngModel)]="student.univ" id="field_univ" >
+                        <option value="YES">{{'ocmtApp.Univ.YES' | translate}}</option>
+                        <option value="NO">{{'ocmtApp.Univ.NO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.univname" for="field_univname">Univname</label>
+                    <input type="text" class="form-control" name="univname" id="field_univname"
+                        [(ngModel)]="student.univname" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.univgraddate" for="field_univgraddate">Univgraddate</label>
+                    <div class="input-group">
+                        <input id="field_univgraddate" type="text" class="form-control" name="univgraddate" ngbDatepicker  #univgraddateDp="ngbDatepicker" [(ngModel)]="student.univgraddate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="univgraddateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.univaddress" for="field_univaddress">Univaddress</label>
+                    <input type="text" class="form-control" name="univaddress" id="field_univaddress"
+                        [(ngModel)]="student.univaddress" required maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.univaddress?.dirty && editForm.controls.univaddress?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.univaddress?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.univaddress?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.sop" for="field_sop">Sop</label>
+                    <div>
+                        <img [src]="'data:' + student.sopContentType + ';base64,' + student.sop" style="max-height: 100px;" *ngIf="student.sop" alt="student image"/>
+                        <div *ngIf="student.sop" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{student.sopContentType}}, {{byteSize(student.sop)}}</span>
+                            <button type="button" (click)="clearInputImage('sop', 'sopContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_sop" (change)="setFileData($event, student, 'sop', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="sop" id="field_sop"
+                        [(ngModel)]="student.sop" />
+                    <input type="hidden" class="form-control" name="sopContentType" id="field_sopContentType"
+                        [(ngModel)]="student.sopContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.scorecard" for="field_scorecard">Scorecard</label>
+                    <div>
+                        <img [src]="'data:' + student.scorecardContentType + ';base64,' + student.scorecard" style="max-height: 100px;" *ngIf="student.scorecard" alt="student image"/>
+                        <div *ngIf="student.scorecard" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{student.scorecardContentType}}, {{byteSize(student.scorecard)}}</span>
+                            <button type="button" (click)="clearInputImage('scorecard', 'scorecardContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_scorecard" (change)="setFileData($event, student, 'scorecard', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="scorecard" id="field_scorecard"
+                        [(ngModel)]="student.scorecard" />
+                    <input type="hidden" class="form-control" name="scorecardContentType" id="field_scorecardContentType"
+                        [(ngModel)]="student.scorecardContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.programtype" for="field_programtype">Programtype</label>
+                    <select class="form-control" name="programtype" [(ngModel)]="student.programtype" id="field_programtype" >
+                        <option value="DIPLOMA">{{'ocmtApp.Programtype.DIPLOMA' | translate}}</option>
+                        <option value="CERTIFICATE">{{'ocmtApp.Programtype.CERTIFICATE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.courses" for="field_courses">Courses</label>
+                    <select class="form-control" name="courses" [(ngModel)]="student.courses" id="field_courses" >
+                        <option value="CYBERSECURITY">{{'ocmtApp.Courses.CYBERSECURITY' | translate}}</option>
+                        <option value="SECURITY">{{'ocmtApp.Courses.SECURITY' | translate}}</option>
+                        <option value="DATA_SCIENCE">{{'ocmtApp.Courses.DATA_SCIENCE' | translate}}</option>
+                        <option value="AI">{{'ocmtApp.Courses.AI' | translate}}</option>
+                        <option value="ETHICAL_HACKING">{{'ocmtApp.Courses.ETHICAL_HACKING' | translate}}</option>
+                        <option value="CYBER_FRAUD">{{'ocmtApp.Courses.CYBER_FRAUD' | translate}}</option>
+                        <option value="UX">{{'ocmtApp.Courses.UX' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.gpa" for="field_gpa">Gpa</label>
+                    <input type="number" class="form-control" name="gpa" id="field_gpa"
+                        [(ngModel)]="student.gpa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ocmtApp.student.payments" for="field_payments">Payments</label>
+                    <select class="form-control" name="payments" [(ngModel)]="student.payments" id="field_payments" >
+                        <option value="YES">{{'ocmtApp.Payments.YES' | translate}}</option>
+                        <option value="NO">{{'ocmtApp.Payments.NO' | translate}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

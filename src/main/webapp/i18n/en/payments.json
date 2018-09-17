@@ -1,0 +1,9 @@
+{
+    "ocmtApp": {
+        "Payments" : {
+            "null": "",
+            "YES": "YES",
+            "NO": "NO"
+        }
+    }
+}

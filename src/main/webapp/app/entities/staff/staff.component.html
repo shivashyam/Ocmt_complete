@@ -1,0 +1,94 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ocmtApp.staff.home.title">Staff</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-staff" [routerLink]="['/staff/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ocmtApp.staff.home.createLabel">
+            Create new Staff
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="staff">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.stafftid">Stafftid</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.fName">F Name</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.mName">M Name</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.lName">L Name</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.uName">U Name</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.password">Password</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.title">Title</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.gender">Gender</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.marital">Marital</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.dob">Dob</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.address">Address</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.paddress">Paddress</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.email">Email</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.phoneNumber">Phone Number</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.cert1">Cert 1</span></th>
+            <th><span jhiTranslate="ocmtApp.staff.cert2">Cert 2</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let staff of staff ;trackBy: trackId">
+                <td><a [routerLink]="['/staff', staff.id, 'view' ]">{{staff.id}}</a></td>
+                <td>{{staff.stafftid}}</td>
+                <td>{{staff.fName}}</td>
+                <td>{{staff.mName}}</td>
+                <td>{{staff.lName}}</td>
+                <td>{{staff.uName}}</td>
+                <td>{{staff.password}}</td>
+                <td jhiTranslate="{{'ocmtApp.Title.' + staff.title}}">{{staff.title}}</td>
+                <td jhiTranslate="{{'ocmtApp.Gender.' + staff.gender}}">{{staff.gender}}</td>
+                <td jhiTranslate="{{'ocmtApp.Marital.' + staff.marital}}">{{staff.marital}}</td>
+                <td>{{staff.dob | date:'mediumDate'}}</td>
+                <td>{{staff.address}}</td>
+                <td>{{staff.paddress}}</td>
+                <td>{{staff.email}}</td>
+                <td>{{staff.phoneNumber}}</td>
+                <td>
+                    <a *ngIf="staff.cert1" (click)="openFile(staff.cert1ContentType, staff.cert1)">
+                        <img [src]="'data:' + staff.cert1ContentType + ';base64,' + staff.cert1" style="max-height: 30px;" alt="staff image"/>
+                    </a>
+                    <span *ngIf="staff.cert1">{{staff.cert1ContentType}}, {{byteSize(staff.cert1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="staff.cert2" (click)="openFile(staff.cert2ContentType, staff.cert2)">
+                        <img [src]="'data:' + staff.cert2ContentType + ';base64,' + staff.cert2" style="max-height: 30px;" alt="staff image"/>
+                    </a>
+                    <span *ngIf="staff.cert2">{{staff.cert2ContentType}}, {{byteSize(staff.cert2)}}</span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/staff', staff.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/staff', staff.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'staff/'+ staff.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

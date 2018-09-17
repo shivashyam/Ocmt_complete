@@ -1,0 +1,157 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="student">
+            <h2><span jhiTranslate="ocmtApp.student.detail.title">Student</span> {{student.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ocmtApp.student.studentid">Studentid</span></dt>
+                <dd>
+                    <span>{{student.studentid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.fName">F Name</span></dt>
+                <dd>
+                    <span>{{student.fName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.mName">M Name</span></dt>
+                <dd>
+                    <span>{{student.mName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.lName">L Name</span></dt>
+                <dd>
+                    <span>{{student.lName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.uName">U Name</span></dt>
+                <dd>
+                    <span>{{student.uName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.password">Password</span></dt>
+                <dd>
+                    <span>{{student.password}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Type.' + student.type}}">{{student.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.title">Title</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Title.' + student.title}}">{{student.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Gender.' + student.gender}}">{{student.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.marital">Marital</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Marital.' + student.marital}}">{{student.marital}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.dob">Dob</span></dt>
+                <dd>
+                    <span>{{student.dob}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.address">Address</span></dt>
+                <dd>
+                    <span>{{student.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.paddress">Paddress</span></dt>
+                <dd>
+                    <span>{{student.paddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.email">Email</span></dt>
+                <dd>
+                    <span>{{student.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{student.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.referral">Referral</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Referral.' + student.referral}}">{{student.referral}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.whythiscourse">Whythiscourse</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Whythiscourse.' + student.whythiscourse}}">{{student.whythiscourse}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.secondary">Secondary</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Secondary.' + student.secondary}}">{{student.secondary}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.schoolname">Schoolname</span></dt>
+                <dd>
+                    <span>{{student.schoolname}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.schoolgraddate">Schoolgraddate</span></dt>
+                <dd>
+                    <span>{{student.schoolgraddate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.schooladdress">Schooladdress</span></dt>
+                <dd>
+                    <span>{{student.schooladdress}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.univ">Univ</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Univ.' + student.univ}}">{{student.univ}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.univname">Univname</span></dt>
+                <dd>
+                    <span>{{student.univname}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.univgraddate">Univgraddate</span></dt>
+                <dd>
+                    <span>{{student.univgraddate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.univaddress">Univaddress</span></dt>
+                <dd>
+                    <span>{{student.univaddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.sop">Sop</span></dt>
+                <dd>
+                    <div *ngIf="student.sop">
+                        <a (click)="openFile(student.sopContentType, student.sop)">
+                            <img [src]="'data:' + student.sopContentType + ';base64,' + student.sop" style="max-width: 100%;" alt="student image"/>
+                        </a>
+                        {{student.sopContentType}}, {{byteSize(student.sop)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.scorecard">Scorecard</span></dt>
+                <dd>
+                    <div *ngIf="student.scorecard">
+                        <a (click)="openFile(student.scorecardContentType, student.scorecard)">
+                            <img [src]="'data:' + student.scorecardContentType + ';base64,' + student.scorecard" style="max-width: 100%;" alt="student image"/>
+                        </a>
+                        {{student.scorecardContentType}}, {{byteSize(student.scorecard)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.programtype">Programtype</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Programtype.' + student.programtype}}">{{student.programtype}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.courses">Courses</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Courses.' + student.courses}}">{{student.courses}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.gpa">Gpa</span></dt>
+                <dd>
+                    <span>{{student.gpa}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.student.payments">Payments</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Payments.' + student.payments}}">{{student.payments}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/student', student.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

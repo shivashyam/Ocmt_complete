@@ -1,0 +1,39 @@
+
+{
+    "ocmtApp": {
+        "faculty" : {
+            "home": {
+                "title": "Faculties",
+                "createLabel": "Create a new Faculty",
+                "createOrEditLabel": "Create or edit a Faculty"
+            },
+            "created": "A new Faculty is created with identifier {{ param }}",
+            "updated": "A Faculty is updated with identifier {{ param }}",
+            "deleted": "A Faculty is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Faculty {{ id }}?"
+            },
+            "detail": {
+                "title": "Faculty"
+            },
+            "facultyid": "Facultyid",
+            "fName": "F Name",
+            "mName": "M Name",
+            "lName": "L Name",
+            "uName": "U Name",
+            "password": "Password",
+            "title": "Title",
+            "gender": "Gender",
+            "marital": "Marital",
+            "dob": "Dob",
+            "address": "Address",
+            "paddress": "Paddress",
+            "email": "Email",
+            "phoneNumber": "Phone Number",
+            "cert1": "Cert 1",
+            "cert2": "Cert 2",
+            "dept": "Dept",
+            "courses": "Courses"
+        }
+    }
+}

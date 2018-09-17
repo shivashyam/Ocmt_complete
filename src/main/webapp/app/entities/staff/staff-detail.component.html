@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="staff">
+            <h2><span jhiTranslate="ocmtApp.staff.detail.title">Staff</span> {{staff.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ocmtApp.staff.stafftid">Stafftid</span></dt>
+                <dd>
+                    <span>{{staff.stafftid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.fName">F Name</span></dt>
+                <dd>
+                    <span>{{staff.fName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.mName">M Name</span></dt>
+                <dd>
+                    <span>{{staff.mName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.lName">L Name</span></dt>
+                <dd>
+                    <span>{{staff.lName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.uName">U Name</span></dt>
+                <dd>
+                    <span>{{staff.uName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.password">Password</span></dt>
+                <dd>
+                    <span>{{staff.password}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.title">Title</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Title.' + staff.title}}">{{staff.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Gender.' + staff.gender}}">{{staff.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.marital">Marital</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ocmtApp.Marital.' + staff.marital}}">{{staff.marital}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.dob">Dob</span></dt>
+                <dd>
+                    <span>{{staff.dob}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.address">Address</span></dt>
+                <dd>
+                    <span>{{staff.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.paddress">Paddress</span></dt>
+                <dd>
+                    <span>{{staff.paddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.email">Email</span></dt>
+                <dd>
+                    <span>{{staff.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{staff.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.cert1">Cert 1</span></dt>
+                <dd>
+                    <div *ngIf="staff.cert1">
+                        <a (click)="openFile(staff.cert1ContentType, staff.cert1)">
+                            <img [src]="'data:' + staff.cert1ContentType + ';base64,' + staff.cert1" style="max-width: 100%;" alt="staff image"/>
+                        </a>
+                        {{staff.cert1ContentType}}, {{byteSize(staff.cert1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ocmtApp.staff.cert2">Cert 2</span></dt>
+                <dd>
+                    <div *ngIf="staff.cert2">
+                        <a (click)="openFile(staff.cert2ContentType, staff.cert2)">
+                            <img [src]="'data:' + staff.cert2ContentType + ';base64,' + staff.cert2" style="max-width: 100%;" alt="staff image"/>
+                        </a>
+                        {{staff.cert2ContentType}}, {{byteSize(staff.cert2)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/staff', staff.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

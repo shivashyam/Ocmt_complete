@@ -1,0 +1,10 @@
+{
+    "ocmtApp": {
+        "Referral" : {
+            "null": "",
+            "FRIENDS": "FRIENDS",
+            "ONLINE": "ONLINE",
+            "MEDIA": "MEDIA"
+        }
+    }
+}

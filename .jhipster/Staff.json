@@ -1,0 +1,94 @@
+{
+    "name": "Staff",
+    "fields": [
+        {
+            "fieldName": "stafftid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "Title",
+            "fieldValues": "MR,MS"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE,OTHER"
+        },
+        {
+            "fieldName": "marital",
+            "fieldType": "Marital",
+            "fieldValues": "SINGLE,MARRIED,DIVORCED"
+        },
+        {
+            "fieldName": "dob",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "paddress",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cert1",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "cert2",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180917181431",
+    "entityTableName": "staff",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,9 @@
+{
+    "ocmtApp": {
+        "Programtype" : {
+            "null": "",
+            "DIPLOMA": "DIPLOMA",
+            "CERTIFICATE": "CERTIFICATE"
+        }
+    }
+}

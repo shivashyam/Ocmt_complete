@@ -1,0 +1,172 @@
+{
+    "name": "Student",
+    "fields": [
+        {
+            "fieldName": "studentid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "Type",
+            "fieldValues": "PROFESSIONAL,CORPORATE,INTERNATIONAL,DOMESTIC"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "Title",
+            "fieldValues": "MR,MS"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE,OTHER"
+        },
+        {
+            "fieldName": "marital",
+            "fieldType": "Marital",
+            "fieldValues": "SINGLE,MARRIED,DIVORCED"
+        },
+        {
+            "fieldName": "dob",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "paddress",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "referral",
+            "fieldType": "Referral",
+            "fieldValues": "FRIENDS,ONLINE,MEDIA"
+        },
+        {
+            "fieldName": "whythiscourse",
+            "fieldType": "Whythiscourse",
+            "fieldValues": "CAREER,SECOND"
+        },
+        {
+            "fieldName": "secondary",
+            "fieldType": "Secondary",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "schoolname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "schoolgraddate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "schooladdress",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "univ",
+            "fieldType": "Univ",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "univname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "univgraddate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "univaddress",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "sop",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "scorecard",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "programtype",
+            "fieldType": "Programtype",
+            "fieldValues": "DIPLOMA,CERTIFICATE"
+        },
+        {
+            "fieldName": "courses",
+            "fieldType": "Courses",
+            "fieldValues": "CYBERSECURITY,SECURITY,DATA_SCIENCE,AI,ETHICAL_HACKING,CYBER_FRAUD,UX"
+        },
+        {
+            "fieldName": "gpa",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "payments",
+            "fieldType": "Payments",
+            "fieldValues": "YES,NO"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180917181429",
+    "entityTableName": "student",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

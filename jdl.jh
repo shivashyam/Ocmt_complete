@@ -1,0 +1,115 @@
+
+
+entity Student {
+	studentid Integer,
+    fName String,
+	mName String,
+	lName String,
+	uName String,
+	password String,
+	type Type,
+	title Title,
+	gender Gender,
+	marital Marital,
+	dob LocalDate,
+	address String required maxlength(100),
+	paddress String required maxlength(100),
+	email String,
+    phoneNumber String,
+    referral Referral,
+    whythiscourse Whythiscourse,
+    secondary Secondary,
+    schoolname String,
+    schoolgraddate LocalDate,
+    schooladdress String required maxlength(100),
+    univ Univ,
+    univname String,
+    univgraddate LocalDate,
+    univaddress String required maxlength(100),
+    sop ImageBlob,
+    scorecard ImageBlob,
+    programtype Programtype,
+    courses Courses
+    gpa Float
+    payments Payments
+
+}
+
+enum Programtype {
+    DIPLOMA, CERTIFICATE
+}
+enum Univ {
+    YES, NO
+}
+enum Payments {
+    YES, NO
+}
+enum Secondary {
+    YES, NO
+}
+enum Whythiscourse {
+    CAREER, SECOND
+}
+enum Referral {
+    FRIENDS, ONLINE, MEDIA
+}
+enum Marital {
+    SINGLE, MARRIED, DIVORCED
+}
+enum Gender {
+    MALE, FEMALE, OTHER
+}
+enum Title {
+    MR, MS
+}
+
+enum Type {
+    PROFESSIONAL, CORPORATE, INTERNATIONAL, DOMESTIC
+}
+enum Courses {
+    CYBERSECURITY, SECURITY, DATA_SCIENCE, AI, ETHICAL_HACKING, CYBER_FRAUD, UX
+}
+enum Dept {
+    CYBERSECURITY, SECURITY, DATA_SCIENCE, AI, ETHICAL_HACKING, CYBER_FRAUD, UX
+}
+
+entity Faculty {
+facultyid Integer,
+fName String,
+mName String,
+lName String,
+uName String,
+password String,
+title Title,
+gender Gender,
+marital Marital,
+dob LocalDate,
+address String required maxlength(100),
+paddress String required maxlength(100),
+email String,
+phoneNumber String,
+cert1 ImageBlob,
+cert2 ImageBlob,
+dept Dept,
+courses Courses
+}
+
+entity Staff {
+stafftid Integer,
+fName String,
+mName String,
+lName String,
+uName String,
+password String,
+title Title,
+gender Gender,
+marital Marital,
+dob LocalDate,
+address String required maxlength(100),
+paddress String required maxlength(100),
+email String,
+phoneNumber String,
+cert1 ImageBlob,
+cert2 ImageBlob,
+
+}

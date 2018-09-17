@@ -1,0 +1,14 @@
+{
+    "ocmtApp": {
+        "Courses" : {
+            "null": "",
+            "CYBERSECURITY": "CYBERSECURITY",
+            "SECURITY": "SECURITY",
+            "DATA_SCIENCE": "DATA_SCIENCE",
+            "AI": "AI",
+            "ETHICAL_HACKING": "ETHICAL_HACKING",
+            "CYBER_FRAUD": "CYBER_FRAUD",
+            "UX": "UX"
+        }
+    }
+}

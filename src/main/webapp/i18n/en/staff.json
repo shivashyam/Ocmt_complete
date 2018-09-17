@@ -1,0 +1,37 @@
+
+{
+    "ocmtApp": {
+        "staff" : {
+            "home": {
+                "title": "Staff",
+                "createLabel": "Create a new Staff",
+                "createOrEditLabel": "Create or edit a Staff"
+            },
+            "created": "A new Staff is created with identifier {{ param }}",
+            "updated": "A Staff is updated with identifier {{ param }}",
+            "deleted": "A Staff is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Staff {{ id }}?"
+            },
+            "detail": {
+                "title": "Staff"
+            },
+            "stafftid": "Stafftid",
+            "fName": "F Name",
+            "mName": "M Name",
+            "lName": "L Name",
+            "uName": "U Name",
+            "password": "Password",
+            "title": "Title",
+            "gender": "Gender",
+            "marital": "Marital",
+            "dob": "Dob",
+            "address": "Address",
+            "paddress": "Paddress",
+            "email": "Email",
+            "phoneNumber": "Phone Number",
+            "cert1": "Cert 1",
+            "cert2": "Cert 2"
+        }
+    }
+}

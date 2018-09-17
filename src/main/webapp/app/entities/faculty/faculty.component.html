@@ -1,0 +1,98 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ocmtApp.faculty.home.title">Faculties</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-faculty" [routerLink]="['/faculty/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ocmtApp.faculty.home.createLabel">
+            Create new Faculty
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="faculties">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.facultyid">Facultyid</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.fName">F Name</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.mName">M Name</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.lName">L Name</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.uName">U Name</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.password">Password</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.title">Title</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.gender">Gender</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.marital">Marital</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.dob">Dob</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.address">Address</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.paddress">Paddress</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.email">Email</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.phoneNumber">Phone Number</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.cert1">Cert 1</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.cert2">Cert 2</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.dept">Dept</span></th>
+            <th><span jhiTranslate="ocmtApp.faculty.courses">Courses</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let faculty of faculties ;trackBy: trackId">
+                <td><a [routerLink]="['/faculty', faculty.id, 'view' ]">{{faculty.id}}</a></td>
+                <td>{{faculty.facultyid}}</td>
+                <td>{{faculty.fName}}</td>
+                <td>{{faculty.mName}}</td>
+                <td>{{faculty.lName}}</td>
+                <td>{{faculty.uName}}</td>
+                <td>{{faculty.password}}</td>
+                <td jhiTranslate="{{'ocmtApp.Title.' + faculty.title}}">{{faculty.title}}</td>
+                <td jhiTranslate="{{'ocmtApp.Gender.' + faculty.gender}}">{{faculty.gender}}</td>
+                <td jhiTranslate="{{'ocmtApp.Marital.' + faculty.marital}}">{{faculty.marital}}</td>
+                <td>{{faculty.dob | date:'mediumDate'}}</td>
+                <td>{{faculty.address}}</td>
+                <td>{{faculty.paddress}}</td>
+                <td>{{faculty.email}}</td>
+                <td>{{faculty.phoneNumber}}</td>
+                <td>
+                    <a *ngIf="faculty.cert1" (click)="openFile(faculty.cert1ContentType, faculty.cert1)">
+                        <img [src]="'data:' + faculty.cert1ContentType + ';base64,' + faculty.cert1" style="max-height: 30px;" alt="faculty image"/>
+                    </a>
+                    <span *ngIf="faculty.cert1">{{faculty.cert1ContentType}}, {{byteSize(faculty.cert1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="faculty.cert2" (click)="openFile(faculty.cert2ContentType, faculty.cert2)">
+                        <img [src]="'data:' + faculty.cert2ContentType + ';base64,' + faculty.cert2" style="max-height: 30px;" alt="faculty image"/>
+                    </a>
+                    <span *ngIf="faculty.cert2">{{faculty.cert2ContentType}}, {{byteSize(faculty.cert2)}}</span>
+                </td>
+                <td jhiTranslate="{{'ocmtApp.Dept.' + faculty.dept}}">{{faculty.dept}}</td>
+                <td jhiTranslate="{{'ocmtApp.Courses.' + faculty.courses}}">{{faculty.courses}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/faculty', faculty.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/faculty', faculty.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'faculty/'+ faculty.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

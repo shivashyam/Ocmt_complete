@@ -1,0 +1,11 @@
+{
+    "ocmtApp": {
+        "Type" : {
+            "null": "",
+            "PROFESSIONAL": "PROFESSIONAL",
+            "CORPORATE": "CORPORATE",
+            "INTERNATIONAL": "INTERNATIONAL",
+            "DOMESTIC": "DOMESTIC"
+        }
+    }
+}
